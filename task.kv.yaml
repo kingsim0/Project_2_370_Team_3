@@ -1,0 +1,30 @@
+<TaskWidget>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: '40dp'
+    Label:
+        text: root.text
+    Button:
+        text: 'Done'
+        size_hint_x: 0.2
+        on_release: root.remove_self()
+
+<TaskManager>:
+    orientation: 'vertical'
+    TextInput:
+        id: task_input
+        size_hint_y: None
+        height: '40dp'
+        multiline: False
+        hint_text: 'Enter a task'
+    Button:
+        text: 'Add Task'
+        size_hint_y: None
+        height: '40dp'
+        on_release: root.add_task()
+    ScrollView:
+        GridLayout:
+            id: task_box
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
